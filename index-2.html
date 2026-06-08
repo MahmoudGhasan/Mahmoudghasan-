@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mahmoud Ghasan – Biomedical Engineer specialized in Medical Equipment, Troubleshooting, Maintenance, and Healthcare Technology. Based in Saudi Arabia." />
+  <meta name="keywords" content="Biomedical Engineer, Medical Equipment, Maintenance, Saudi Arabia, Orthoserv, Healthcare Technology" />
+  <meta name="author" content="Mahmoud Ghasan" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mahmoud Ghasan | Biomedical Engineer" />
+  <meta property="og:description" content="Specialized in Medical Equipment, Troubleshooting, Maintenance, and Healthcare Technology." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/0a2540/00d4ff?text=Mahmoud+Ghasan" />
+  <title>Mahmoud Ghasan | Biomedical Engineer</title>
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* =============================================
+       CSS VARIABLES & RESET
+    ============================================= */
+    :root {
+      --accent:       #00d4ff;
+      --accent2:      #0077ff;
+      --accent-glow:  rgba(0, 212, 255, 0.25);
+      --bg:           #060d1a;
+      --bg2:          #0a1628;
+      --bg3:          #0e1f38;
+      --glass:        rgba(14, 31, 56, 0.65);
+      --glass-border: rgba(0, 212, 255, 0.15);
+      --text:         #e8f4fd;
+      --text-muted:   #7a9bbf;
+      --card-bg:      rgba(10, 22, 40, 0.8);
+      --nav-bg:       rgba(6, 13, 26, 0.92);
+      --shadow:       0 8px 40px rgba(0, 0, 0, 0.5);
+      --radius:       16px;
+      --transition:   0.35s cubic-bezier(.4,0,.2,1);
+    }
+    [data-theme="light"] {
+      --bg:           #f0f6ff;
+      --bg2:          #ddeeff;
+      --bg3:          #c8e0f8;
+      --glass:        rgba(255,255,255,0.7);
+      --glass-border: rgba(0,119,255,0.2);
+      --text:         #0a1628;
+      --text-muted:   #3a6080;
+      --card-bg:      rgba(255,255,255,0.85);
+      --nav-bg:       rgba(240,246,255,0.95);
+      --shadow:       0 8px 40px rgba(0,119,255,0.1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      transition: background var(--transition), color var(--transition);
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { display: block; max-width: 100%; }
+    button { cursor: pointer; font-family: 'Poppins', sans-serif; }
+
+    /* =============================================
+       LOADING SCREEN
+    ============================================= */
+    #loader {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--bg);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 20px;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    #loader.hidden { opacity: 0; visibility: hidden; }
+    .loader-pulse {
+      width: 70px; height: 70px;
+      border-radius: 50%;
+      border: 3px solid var(--glass-border);
+      border-top-color: var(--accent);
+      animation: spin 0.9s linear infinite;
+    }
+    .loader-text {
+      font-size: 0.85rem; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--accent);
+      animation: pulse-text 1.2s ease-in-out infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse-text { 0%,100%{opacity:.4} 50%{opacity:1} }
+
+    /* =============================================
+       SCROLLBAR
+    ============================================= */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent2); border-radius: 3px; }
+
+    /* =============================================
+       UTILITY
+    ============================================= */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 100px 0; }
+    .section-label {
+      font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 12px; display: block;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800; line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .section-subtitle {
+      color: var(--text-muted); font-size: 1rem;
+      max-width: 560px; line-height: 1.7;
+      margin-bottom: 60px;
+    }
+    .accent { color: var(--accent); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 28px; border-radius: 50px;
+      font-size: 0.9rem; font-weight: 600;
+      transition: var(--transition); border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(0,212,255,0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0,212,255,0.5);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+    }
+    .btn-outline:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+    .glass-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-left  { opacity:0; transform:translateX(-40px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal-right { opacity:0; transform:translateX(40px);  transition: opacity .7s ease, transform .7s ease; }
+    .reveal-left.visible, .reveal-right.visible { opacity:1; transform:none; }
+
+    /* =============================================
+       NAVBAR
+    ============================================= */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: var(--nav-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+      transition: var(--transition);
+    }
+    #navbar.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
+    .nav-inner {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo {
+      font-size: 1.3rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px;
+    }
+    .nav-links a {
+      font-size: 0.85rem; font-weight: 500;
+      color: var(--text-muted);
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content:''; position:absolute; bottom:-4px; left:0;
+      width:0; height:2px;
+      background: linear-gradient(90deg, var(--accent2), var(--accent));
+      transition: width var(--transition);
+      border-radius: 2px;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-links a:hover::after, .nav-links a.active::after { width:100%; }
+    .nav-actions { display:flex; align-items:center; gap:12px; }
+    #theme-toggle {
+      width:40px; height:40px; border-radius:50%;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      color: var(--accent);
+      font-size: 1rem;
+      display:flex; align-items:center; justify-content:center;
+      transition: var(--transition);
+    }
+    #theme-toggle:hover { background: var(--accent); color:#fff; }
+    .hamburger {
+      display:none; flex-direction:column; gap:5px;
+      background:none; border:none; padding:4px;
+    }
+    .hamburger span {
+      display:block; width:24px; height:2px;
+      background: var(--text);
+      border-radius:2px;
+      transition: var(--transition);
+    }
+    .hamburger.open span:nth-child(1){ transform:rotate(45deg) translate(5px,5px); }
+    .hamburger.open span:nth-child(2){ opacity:0; }
+    .hamburger.open span:nth-child(3){ transform:rotate(-45deg) translate(5px,-5px); }
+
+    /* Mobile nav */
+    @media(max-width:860px){
+      .nav-links {
+        position:fixed; top:68px; left:0; right:0;
+        background:var(--nav-bg);
+        backdrop-filter:blur(20px);
+        flex-direction:column; gap:0;
+        max-height:0; overflow:hidden;
+        transition: max-height 0.4s ease;
+        border-bottom:1px solid var(--glass-border);
+      }
+      .nav-links.open { max-height:400px; }
+      .nav-links a { padding:14px 24px; display:block; }
+      .hamburger { display:flex; }
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding-top: 68px;
+    }
+    /* Animated background grid */
+    .hero-bg {
+      position:absolute; inset:0; z-index:0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(0,119,255,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 20% 70%, rgba(0,212,255,0.08) 0%, transparent 55%);
+    }
+    .hero-grid {
+      position:absolute; inset:0; z-index:0;
+      background-image:
+        linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+      animation: grid-drift 20s linear infinite;
+    }
+    @keyframes grid-drift { from{background-position:0 0} to{background-position:60px 60px} }
+    .hero-orb {
+      position:absolute; border-radius:50%; filter:blur(80px); animation:orb-float 8s ease-in-out infinite;
+    }
+    .orb1 { width:500px;height:500px; background:rgba(0,119,255,0.08); top:-100px;right:-100px; animation-delay:0s; }
+    .orb2 { width:350px;height:350px; background:rgba(0,212,255,0.06); bottom:-80px;left:-80px; animation-delay:-4s; }
+    @keyframes orb-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-30px)} }
+
+    .hero-inner {
+      position:relative; z-index:1;
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:60px; align-items:center;
+      width:100%;
+    }
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:8px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius:50px; padding:7px 18px;
+      font-size:0.78rem; font-weight:500;
+      color: var(--accent); letter-spacing:1px;
+      margin-bottom:24px;
+      animation: badge-in 0.6s ease both;
+    }
+    .hero-badge i { font-size:0.7rem; }
+    @keyframes badge-in { from{opacity:0;transform:translateY(-10px)} to{opacity:1;transform:none} }
+
+    .hero-name {
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 900; line-height: 1.08;
+      margin-bottom: 12px;
+      animation: hero-text-in 0.8s ease 0.2s both;
+    }
+    .hero-name .line2 {
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-title {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      font-weight: 600; color: var(--accent);
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 20px;
+      animation: hero-text-in 0.8s ease 0.35s both;
+    }
+    .hero-tagline {
+      font-size: 1rem; color: var(--text-muted);
+      line-height: 1.75; margin-bottom: 40px;
+      max-width: 480px;
+      animation: hero-text-in 0.8s ease 0.5s both;
+    }
+    @keyframes hero-text-in { from{opacity:0;transform:translateX(-30px)} to{opacity:1;transform:none} }
+
+    .hero-cta {
+      display:flex; gap:16px; flex-wrap:wrap;
+      animation: hero-text-in 0.8s ease 0.65s both;
+    }
+    .hero-stats {
+      display:flex; gap:36px; margin-top:52px;
+      animation: hero-text-in 0.8s ease 0.8s both;
+    }
+    .stat-item { text-align:center; }
+    .stat-num {
+      font-size:2rem; font-weight:800;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      background-clip:text; line-height:1;
+    }
+    .stat-label { font-size:0.75rem; color:var(--text-muted); margin-top:4px; }
+
+    /* Hero card visual */
+    .hero-visual {
+      display:flex; justify-content:center; align-items:center;
+      animation: hero-right-in 1s ease 0.3s both;
+    }
+    @keyframes hero-right-in { from{opacity:0;transform:scale(0.85)} to{opacity:1;transform:none} }
+    .hero-card {
+      width:340px; height:420px;
+      background: var(--glass);
+      border:1px solid var(--glass-border);
+      border-radius:24px;
+      backdrop-filter:blur(20px);
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      gap:20px; position:relative; overflow:hidden;
+      box-shadow: 0 20px 80px rgba(0,119,255,0.2), inset 0 1px 0 rgba(0,212,255,0.1);
+    }
+    .hero-card::before {
+      content:''; position:absolute; top:-60px; right:-60px;
+      width:200px; height:200px; border-radius:50%;
+      background: radial-gradient(circle, rgba(0,212,255,0.15), transparent 70%);
+    }
+    .hero-card-icon {
+      width:110px; height:110px; border-radius:50%;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      display:flex; align-items:center; justify-content:center;
+      font-size:2.8rem; color:#fff;
+      box-shadow: 0 0 40px rgba(0,212,255,0.4);
+      animation: icon-pulse 3s ease-in-out infinite;
+    }
+    @keyframes icon-pulse { 0%,100%{box-shadow:0 0 40px rgba(0,212,255,0.4)} 50%{box-shadow:0 0 70px rgba(0,212,255,0.7)} }
+    .hero-card h3 { font-size:1.2rem; font-weight:700; }
+    .hero-card p { font-size:0.8rem; color:var(--text-muted); text-align:center; padding:0 20px; }
+    .hero-card-tags { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; padding:0 16px; }
+    .hero-tag {
+      font-size:0.7rem; padding:4px 12px; border-radius:50px;
+      background: rgba(0,212,255,0.1);
+      border:1px solid rgba(0,212,255,0.2);
+      color: var(--accent);
+    }
+
+    @media(max-width:860px){
+      .hero-inner { grid-template-columns:1fr; gap:40px; text-align:center; }
+      .hero-tagline { margin:0 auto 40px; }
+      .hero-cta { justify-content:center; }
+      .hero-stats { justify-content:center; }
+      .hero-visual { order:-1; }
+      .hero-card { width:280px; height:340px; }
+    }
+
+    /* =============================================
+       ABOUT
+    ============================================= */
+    #about { background: var(--bg2); }
+    .about-grid {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:60px; align-items:center;
+    }
+    .about-img-wrap {
+      position:relative;
+    }
+    .about-img-box {
+      border-radius:20px; overflow:hidden;
+      background: linear-gradient(135deg, var(--bg3), var(--bg2));
+      height:420px;
+      display:flex; align-items:center; justify-content:center;
+      border:1px solid var(--glass-border);
+      position:relative;
+    }
+    .about-img-box i { font-size:6rem; color:var(--accent); opacity:.3; }
+    .about-img-box::after {
+      content:''; position:absolute; inset:0;
+      background: linear-gradient(135deg, rgba(0,119,255,0.08), rgba(0,212,255,0.05));
+    }
+    .about-badge-float {
+      position:absolute; bottom:-20px; right:-20px;
+      background:linear-gradient(135deg,var(--accent2),var(--accent));
+      border-radius:16px; padding:18px 22px;
+      text-align:center; color:#fff;
+      box-shadow: 0 8px 30px rgba(0,119,255,0.4);
+    }
+    .about-badge-float .num { font-size:2rem; font-weight:900; display:block; }
+    .about-badge-float .lbl { font-size:0.7rem; text-transform:uppercase; letter-spacing:2px; }
+    .about-text p {
+      color:var(--text-muted); line-height:1.8; margin-bottom:20px;
+      font-size:0.95rem;
+    }
+    .about-skills-wrap { margin-top:32px; }
+    .about-skills-wrap h4 { font-size:0.9rem; font-weight:600; margin-bottom:16px; }
+    .skill-bar-list { display:flex; flex-direction:column; gap:14px; }
+    .skill-bar-item {}
+    .skill-bar-top { display:flex; justify-content:space-between; margin-bottom:6px; }
+    .skill-bar-top span { font-size:0.8rem; color:var(--text-muted); }
+    .skill-bar-track {
+      height:6px; background:var(--bg3); border-radius:3px; overflow:hidden;
+    }
+    .skill-bar-fill {
+      height:100%; border-radius:3px;
+      background: linear-gradient(90deg, var(--accent2), var(--accent));
+      width:0; transition: width 1.2s cubic-bezier(.4,0,.2,1);
+    }
+    @media(max-width:860px){
+      .about-grid { grid-template-columns:1fr; gap:40px; }
+      .about-badge-float { bottom:-10px; right:10px; }
+    }
+
+    /* =============================================
+       SERVICES
+    ============================================= */
+    #services {}
+    .services-grid {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+    }
+    .service-card {
+      background:var(--card-bg);
+      border:1px solid var(--glass-border);
+      border-radius:var(--radius);
+      padding:32px 28px;
+      transition:var(--transition);
+      position:relative; overflow:hidden;
+      cursor:default;
+    }
+    .service-card::before {
+      content:''; position:absolute;
+      inset:0; background:linear-gradient(135deg, rgba(0,119,255,0.06), transparent);
+      opacity:0; transition:opacity var(--transition);
+    }
+    .service-card:hover { transform:translateY(-8px); border-color:var(--accent); box-shadow:0 16px 50px rgba(0,212,255,0.15); }
+    .service-card:hover::before { opacity:1; }
+    .service-icon {
+      width:56px; height:56px; border-radius:14px;
+      background:rgba(0,212,255,0.1);
+      border:1px solid rgba(0,212,255,0.2);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.4rem; color:var(--accent);
+      margin-bottom:20px;
+      transition:var(--transition);
+    }
+    .service-card:hover .service-icon { background:var(--accent); color:#fff; }
+    .service-card h3 { font-size:1rem; font-weight:700; margin-bottom:10px; }
+    .service-card p { font-size:0.83rem; color:var(--text-muted); line-height:1.7; }
+    @media(max-width:900px){ .services-grid { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:560px){ .services-grid { grid-template-columns:1fr; } }
+
+    /* =============================================
+       SKILLS
+    ============================================= */
+    #skills { background:var(--bg2); }
+    .skills-grid {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+    }
+    .skill-card {
+      background:var(--card-bg);
+      border:1px solid var(--glass-border);
+      border-radius:var(--radius);
+      padding:28px 24px;
+      text-align:center;
+      transition:var(--transition);
+    }
+    .skill-card:hover { transform:translateY(-6px); border-color:var(--accent); }
+    .skill-icon {
+      width:60px; height:60px; border-radius:50%;
+      background:linear-gradient(135deg,var(--accent2),var(--accent));
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.5rem; color:#fff; margin:0 auto 16px;
+      box-shadow:0 4px 20px rgba(0,212,255,0.3);
+    }
+    .skill-card h3 { font-size:0.95rem; font-weight:700; margin-bottom:8px; }
+    .skill-card p { font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+    @media(max-width:860px){ .skills-grid { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:480px){ .skills-grid { grid-template-columns:1fr; } }
+
+    /* =============================================
+       PORTFOLIO
+    ============================================= */
+    #portfolio {}
+    .portfolio-grid {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+    }
+    .portfolio-card {
+      background:var(--card-bg);
+      border:1px solid var(--glass-border);
+      border-radius:var(--radius);
+      overflow:hidden;
+      transition:var(--transition);
+    }
+    .portfolio-card:hover { transform:translateY(-8px); box-shadow:0 20px 60px rgba(0,119,255,0.2); }
+    .portfolio-thumb {
+      height:180px;
+      background:linear-gradient(135deg, var(--bg3), var(--bg2));
+      display:flex; align-items:center; justify-content:center;
+      position:relative; overflow:hidden;
+    }
+    .portfolio-thumb i { font-size:3rem; color:var(--accent); opacity:.4; z-index:1; }
+    .portfolio-thumb::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(to bottom, transparent 40%, var(--card-bg));
+    }
+    .portfolio-thumb-gradient-1 { background:linear-gradient(135deg,#0a1e3d,#0d2d52); }
+    .portfolio-thumb-gradient-2 { background:linear-gradient(135deg,#061820,#0d2c38); }
+    .portfolio-thumb-gradient-3 { background:linear-gradient(135deg,#0d1a2d,#071428); }
+    .portfolio-thumb-gradient-4 { background:linear-gradient(135deg,#0a2020,#082828); }
+    .portfolio-thumb-gradient-5 { background:linear-gradient(135deg,#1a0a2e,#120a28); }
+    .portfolio-thumb-gradient-6 { background:linear-gradient(135deg,#1a1a0a,#282018); }
+    .portfolio-body { padding:20px; }
+    .portfolio-tag {
+      font-size:0.7rem; padding:3px 10px; border-radius:50px;
+      background:rgba(0,212,255,0.1); color:var(--accent);
+      border:1px solid rgba(0,212,255,0.2);
+      display:inline-block; margin-bottom:10px;
+    }
+    .portfolio-body h3 { font-size:0.95rem; font-weight:700; margin-bottom:8px; }
+    .portfolio-body p { font-size:0.8rem; color:var(--text-muted); line-height:1.6; }
+    @media(max-width:900px){ .portfolio-grid { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:560px){ .portfolio-grid { grid-template-columns:1fr; } }
+
+    /* =============================================
+       CERTIFICATIONS
+    ============================================= */
+    #certifications { background:var(--bg2); }
+    .cert-timeline {
+      position:relative; padding-left:40px; max-width:800px; margin:0 auto;
+    }
+    .cert-timeline::before {
+      content:''; position:absolute; left:12px; top:0; bottom:0;
+      width:2px;
+      background:linear-gradient(to bottom, var(--accent2), var(--accent), transparent);
+    }
+    .cert-item {
+      position:relative; margin-bottom:40px;
+    }
+    .cert-dot {
+      position:absolute; left:-35px; top:4px;
+      width:16px; height:16px; border-radius:50%;
+      background:linear-gradient(135deg,var(--accent2),var(--accent));
+      box-shadow:0 0 12px rgba(0,212,255,0.5);
+    }
+    .cert-card {
+      background:var(--card-bg);
+      border:1px solid var(--glass-border);
+      border-radius:var(--radius);
+      padding:24px 28px;
+      transition:var(--transition);
+    }
+    .cert-card:hover { border-color:var(--accent); transform:translateX(6px); }
+    .cert-year {
+      font-size:0.75rem; color:var(--accent); font-weight:600;
+      letter-spacing:2px; text-transform:uppercase; margin-bottom:6px;
+    }
+    .cert-card h3 { font-size:1rem; font-weight:700; margin-bottom:4px; }
+    .cert-card p { font-size:0.82rem; color:var(--text-muted); }
+
+    /* =============================================
+       CONTACT
+    ============================================= */
+    #contact {}
+    .contact-grid {
+      display:grid; grid-template-columns:1fr 1.2fr; gap:48px;
+    }
+    .contact-info h3 { font-size:1.2rem; font-weight:700; margin-bottom:12px; }
+    .contact-info p { color:var(--text-muted); font-size:0.9rem; line-height:1.75; margin-bottom:32px; }
+    .contact-links { display:flex; flex-direction:column; gap:14px; }
+    .contact-link {
+      display:flex; align-items:center; gap:14px;
+      padding:14px 18px;
+      background:var(--card-bg);
+      border:1px solid var(--glass-border);
+      border-radius:12px;
+      transition:var(--transition);
+      color:var(--text);
+    }
+    .contact-link:hover { border-color:var(--accent); transform:translateX(6px); background:rgba(0,212,255,0.05); }
+    .contact-link-icon {
+      width:42px; height:42px; border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.1rem; flex-shrink:0;
+    }
+    .cl-whatsapp { background:rgba(37,211,102,0.15); color:#25d366; }
+    .cl-email    { background:rgba(0,212,255,0.15);  color:var(--accent); }
+    .cl-linkedin { background:rgba(0,119,181,0.15);  color:#0077b5; }
+    .cl-facebook { background:rgba(24,119,242,0.15); color:#1877f2; }
+    .contact-link-text span:first-child { font-size:0.85rem; font-weight:600; display:block; }
+    .contact-link-text span:last-child  { font-size:0.75rem; color:var(--text-muted); }
+
+    /* Contact form */
+    .contact-form { display:flex; flex-direction:column; gap:18px; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .form-group { display:flex; flex-direction:column; gap:6px; }
+    .form-group label { font-size:0.8rem; font-weight:500; color:var(--text-muted); }
+    .form-group input,
+    .form-group textarea {
+      background:var(--card-bg);
+      border:1px solid var(--glass-border);
+      border-radius:10px; padding:12px 16px;
+      color:var(--text); font-family:'Poppins',sans-serif;
+      font-size:0.87rem;
+      transition:border-color var(--transition);
+      outline:none; resize:vertical;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color:var(--text-muted); opacity:.6; }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(0,212,255,0.1); }
+    .form-group textarea { min-height:130px; }
+    #form-success {
+      display:none; background:rgba(0,212,255,0.1);
+      border:1px solid var(--accent); border-radius:10px;
+      padding:12px 16px; font-size:0.85rem; color:var(--accent); text-align:center;
+    }
+    @media(max-width:860px){
+      .contact-grid { grid-template-columns:1fr; }
+      .form-row { grid-template-columns:1fr; }
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      background:var(--bg);
+      border-top:1px solid var(--glass-border);
+      padding:48px 0 32px;
+    }
+    .footer-inner {
+      display:flex; align-items:center;
+      justify-content:space-between; flex-wrap:wrap; gap:24px;
+    }
+    .footer-brand .nav-logo { font-size:1.4rem; }
+    .footer-brand p { font-size:0.8rem; color:var(--text-muted); margin-top:6px; }
+    .footer-socials { display:flex; gap:12px; }
+    .footer-social {
+      width:40px; height:40px; border-radius:10px;
+      background:var(--glass); border:1px solid var(--glass-border);
+      display:flex; align-items:center; justify-content:center;
+      font-size:0.95rem; color:var(--text-muted);
+      transition:var(--transition);
+    }
+    .footer-social:hover { background:var(--accent); color:#fff; border-color:var(--accent); transform:translateY(-3px); }
+    .footer-copy { font-size:0.78rem; color:var(--text-muted); text-align:center; margin-top:32px; padding-top:24px; border-top:1px solid var(--glass-border); }
+
+    /* =============================================
+       BACK TO TOP
+    ============================================= */
+    #back-top {
+      position:fixed; bottom:28px; right:28px; z-index:900;
+      width:46px; height:46px; border-radius:12px;
+      background:linear-gradient(135deg,var(--accent2),var(--accent));
+      color:#fff; font-size:1rem;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 4px 20px rgba(0,212,255,0.4);
+      opacity:0; visibility:hidden; transform:translateY(20px);
+      transition:var(--transition);
+      border:none;
+    }
+    #back-top.visible { opacity:1; visibility:visible; transform:none; }
+    #back-top:hover { transform:translateY(-4px); }
+  </style>
+</head>
+<body>
+
+  <!-- ======= LOADER ======= -->
+  <div id="loader">
+    <div class="loader-pulse"></div>
+    <span class="loader-text">Loading</span>
+  </div>
+
+  <!-- ======= NAVBAR ======= -->
+  <nav id="navbar">
+    <div class="container nav-inner">
+      <a href="#hero" class="nav-logo">MG<span style="color:var(--accent);">.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="theme-toggle" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======= HERO ======= -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-orb orb1"></div>
+    <div class="hero-orb orb2"></div>
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-heartbeat"></i>
+          Biomedical Engineering Professional
+        </div>
+        <h1 class="hero-name">
+          Mahmoud<br><span class="line2">Ghasan</span>
+        </h1>
+        <p class="hero-title">Biomedical Engineer</p>
+        <p class="hero-tagline">
+          Specialized in Medical Equipment, Troubleshooting,
+          Maintenance, and Healthcare Technology — committed to
+          keeping critical devices at peak performance.
+        </p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope"></i> Contact Me</a>
+          <a href="#portfolio" class="btn btn-outline"><i class="fas fa-briefcase"></i> View Portfolio</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">50+</div>
+            <div class="stat-label">Devices Maintained</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Compliance Rate</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-icon"><i class="fas fa-stethoscope"></i></div>
+          <h3>Mahmoud Ghasan</h3>
+          <p>Biomedical Engineer<br>Orthoserv · Saudi Arabia</p>
+          <div class="hero-card-tags">
+            <span class="hero-tag">ICU Equipment</span>
+            <span class="hero-tag">Imaging</span>
+            <span class="hero-tag">Calibration</span>
+            <span class="hero-tag">Compliance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= ABOUT ======= -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-wrap reveal-left">
+          <div class="about-img-box">
+            <i class="fas fa-user-md"></i>
+          </div>
+          <div class="about-badge-float">
+            <span class="num">5+</span>
+            <span class="lbl">Years Exp.</span>
+          </div>
+        </div>
+        <div class="about-text reveal-right">
+          <span class="section-label">About Me</span>
+          <h2 class="section-title">Dedicated to <span class="accent">Healthcare</span> Technology Excellence</h2>
+          <p>
+            I am a Biomedical Engineer with over 5 years of hands-on experience in the maintenance,
+            calibration, and troubleshooting of complex medical devices. Currently working at
+            <strong>Orthoserv</strong> in Saudi Arabia, I ensure that critical healthcare equipment
+            operates safely and efficiently.
+          </p>
+          <p>
+            My expertise spans a broad range of clinical environments — from ICUs and operating
+            theatres to radiology departments — where I apply technical precision and a
+            patient-safety-first mindset to every task.
+          </p>
+          <div class="about-skills-wrap">
+            <h4>Core Proficiencies</h4>
+            <div class="skill-bar-list">
+              <div class="skill-bar-item">
+                <div class="skill-bar-top"><span>Medical Equipment Maintenance</span><span>95%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar-top"><span>Device Troubleshooting</span><span>92%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="92"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar-top"><span>Calibration & Safety Standards</span><span>90%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-bar-top"><span>Technical Documentation</span><span>88%</span></div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= SERVICES ======= -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <span class="section-label">What I Do</span>
+        <h2 class="section-title">Professional <span class="accent">Services</span></h2>
+        <p class="section-subtitle" style="margin:0 auto 60px;">
+          Comprehensive biomedical engineering services designed to keep
+          healthcare facilities running at optimal performance.
+        </p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-tools"></i></div>
+          <h3>Medical Equipment Maintenance</h3>
+          <p>Comprehensive preventive and corrective maintenance for a wide range of medical devices to ensure continuous safe operation.</p>
+        </div>
+        <div class="service-card reveal" style="transition-delay:.08s">
+          <div class="service-icon"><i class="fas fa-search"></i></div>
+          <h3>Device Troubleshooting</h3>
+          <p>Systematic fault diagnosis using advanced techniques and OEM service manuals to rapidly restore device functionality.</p>
+        </div>
+        <div class="service-card reveal" style="transition-delay:.16s">
+          <div class="service-icon"><i class="fas fa-calendar-check"></i></div>
+          <h3>Preventive Maintenance</h3>
+          <p>Scheduled PM programs aligned with manufacturer guidelines, extending device lifespan and reducing unexpected downtime.</p>
+        </div>
+        <div class="service-card reveal" style="transition-delay:.24s">
+          <div class="service-icon"><i class="fas fa-plug"></i></div>
+          <h3>Installation & Commissioning</h3>
+          <p>Professional installation, configuration, and acceptance testing of new medical equipment to meet clinical and regulatory standards.</p>
+        </div>
+        <div class="service-card reveal" style="transition-delay:.32s">
+          <div class="service-icon"><i class="fas fa-headset"></i></div>
+          <h3>Technical Support</h3>
+          <p>Responsive on-site and remote technical support for clinical and engineering staff to minimize operational disruptions.</p>
+        </div>
+        <div class="service-card reveal" style="transition-delay:.40s">
+          <div class="service-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <h3>Training & Consultation</h3>
+          <p>Structured training programs for clinical staff on safe equipment operation, and expert consultation for procurement decisions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= SKILLS ======= -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <span class="section-label">Technical Expertise</span>
+        <h2 class="section-title">Core <span class="accent">Technical Skills</span></h2>
+        <p class="section-subtitle" style="margin:0 auto 60px;">
+          A versatile engineering skill set built through years of clinical field work
+          and continuous professional development.
+        </p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div class="skill-icon"><i class="fas fa-microchip"></i></div>
+          <h3>Hardware Diagnostics</h3>
+          <p>In-depth analysis of electronic circuits, power supplies, and mechanical components in medical devices.</p>
+        </div>
+        <div class="skill-card reveal" style="transition-delay:.08s">
+          <div class="skill-icon"><i class="fas fa-laptop-medical"></i></div>
+          <h3>Medical Software Systems</h3>
+          <p>Configuration and maintenance of clinical information systems, device software, and firmware updates.</p>
+        </div>
+        <div class="skill-card reveal" style="transition-delay:.16s">
+          <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+          <h3>Networking & Connectivity</h3>
+          <p>Integration of medical devices into hospital networks (HL7, DICOM) ensuring secure and reliable data exchange.</p>
+        </div>
+        <div class="skill-card reveal" style="transition-delay:.24s">
+          <div class="skill-icon"><i class="fas fa-balance-scale"></i></div>
+          <h3>Calibration</h3>
+          <p>Precision calibration of diagnostic and therapeutic equipment to ISO and regulatory standards.</p>
+        </div>
+        <div class="skill-card reveal" style="transition-delay:.32s">
+          <div class="skill-icon"><i class="fas fa-file-medical-alt"></i></div>
+          <h3>Documentation</h3>
+          <p>Thorough maintenance records, service reports, and compliance documentation for audit readiness.</p>
+        </div>
+        <div class="skill-card reveal" style="transition-delay:.40s">
+          <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Safety Standards</h3>
+          <p>Expertise in IEC 60601, NFPA 99, Saudi MOH guidelines, and JCI accreditation requirements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= PORTFOLIO ======= -->
+  <section id="portfolio" class="section">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <span class="section-label">My Work</span>
+        <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
+        <p class="section-subtitle" style="margin:0 auto 60px;">
+          A selection of key projects demonstrating technical depth
+          and real-world impact in healthcare environments.
+        </p>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card reveal">
+          <div class="portfolio-thumb portfolio-thumb-gradient-1"><i class="fas fa-x-ray"></i></div>
+          <div class="portfolio-body">
+            <span class="portfolio-tag">Imaging</span>
+            <h3>X-Ray System Overhaul</h3>
+            <p>Complete refurbishment and calibration of a multi-room X-ray system, reducing patient retake rate by 30%.</p>
+          </div>
+        </div>
+        <div class="portfolio-card reveal" style="transition-delay:.08s">
+          <div class="portfolio-thumb portfolio-thumb-gradient-2"><i class="fas fa-heartbeat"></i></div>
+          <div class="portfolio-body">
+            <span class="portfolio-tag">ICU</span>
+            <h3>ICU Ventilator Fleet PM</h3>
+            <p>Preventive maintenance program for 20+ ventilators ensuring zero unplanned downtime across the ICU.</p>
+          </div>
+        </div>
+        <div class="portfolio-card reveal" style="transition-delay:.16s">
+          <div class="portfolio-thumb portfolio-thumb-gradient-3"><i class="fas fa-procedures"></i></div>
+          <div class="portfolio-body">
+            <span class="portfolio-tag">OR</span>
+            <h3>Operating Theatre Equipment Setup</h3>
+            <p>Installation and commissioning of surgical lights, anesthesia machines, and monitoring systems for a new OR.</p>
+          </div>
+        </div>
+        <div class="portfolio-card reveal" style="transition-delay:.24s">
+          <div class="portfolio-thumb portfolio-thumb-gradient-4"><i class="fas fa-vials"></i></div>
+          <div class="portfolio-body">
+            <span class="portfolio-tag">Laboratory</span>
+            <h3>Laboratory Analyzer Integration</h3>
+            <p>Networked hematology and chemistry analyzers into the hospital LIS, cutting result turnaround time by 40%.</p>
+          </div>
+        </div>
+        <div class="portfolio-card reveal" style="transition-delay:.32s">
+          <div class="portfolio-thumb portfolio-thumb-gradient-5"><i class="fas fa-ambulance"></i></div>
+          <div class="portfolio-body">
+            <span class="portfolio-tag">Emergency</span>
+            <h3>Emergency Defibrillator Audit</h3>
+            <p>Facility-wide safety audit and recertification of all AEDs and manual defibrillators for JCI compliance.</p>
+          </div>
+        </div>
+        <div class="portfolio-card reveal" style="transition-delay:.40s">
+          <div class="portfolio-thumb portfolio-thumb-gradient-6"><i class="fas fa-chalkboard-teacher"></i></div>
+          <div class="portfolio-body">
+            <span class="portfolio-tag">Training</span>
+            <h3>Staff Equipment Training Program</h3>
+            <p>Designed and delivered a structured 3-month training curriculum for nursing and clinical engineering staff.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= CERTIFICATIONS ======= -->
+  <section id="certifications" class="section">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <span class="section-label">Credentials</span>
+        <h2 class="section-title">Certifications & <span class="accent">Education</span></h2>
+        <p class="section-subtitle" style="margin:0 auto 60px;">
+          Professional qualifications and continuous learning milestones
+          throughout my engineering career.
+        </p>
+      </div>
+      <div class="cert-timeline">
+        <div class="cert-item reveal">
+          <div class="cert-dot"></div>
+          <div class="cert-card">
+            <div class="cert-year">Education</div>
+            <h3>Bachelor of Science – Biomedical Engineering</h3>
+            <p>Comprehensive undergraduate program covering medical devices, biomechanics, clinical engineering, and healthcare technology management.</p>
+          </div>
+        </div>
+        <div class="cert-item reveal" style="transition-delay:.1s">
+          <div class="cert-dot"></div>
+          <div class="cert-card">
+            <div class="cert-year">Professional</div>
+            <h3>Certified Biomedical Equipment Technician (CBET)</h3>
+            <p>Industry-recognized certification validating competency in the maintenance and repair of biomedical equipment.</p>
+          </div>
+        </div>
+        <div class="cert-item reveal" style="transition-delay:.2s">
+          <div class="cert-dot"></div>
+          <div class="cert-card">
+            <div class="cert-year">Safety</div>
+            <h3>Medical Electrical Safety – IEC 60601</h3>
+            <p>Specialized training in international safety standards for medical electrical equipment and systems.</p>
+          </div>
+        </div>
+        <div class="cert-item reveal" style="transition-delay:.3s">
+          <div class="cert-dot"></div>
+          <div class="cert-card">
+            <div class="cert-year">Current Position</div>
+            <h3>Biomedical Engineer – Orthoserv, Saudi Arabia</h3>
+            <p>Field engineer responsible for the maintenance, calibration, and support of medical devices across multiple healthcare facilities in Saudi Arabia.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= CONTACT ======= -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <span class="section-label">Get In Touch</span>
+        <h2 class="section-title">Let's <span class="accent">Connect</span></h2>
+        <p class="section-subtitle" style="margin:0 auto 60px;">
+          Have a project, partnership, or technical inquiry?
+          Reach out through any of the channels below.
+        </p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal-left">
+          <h3>Contact Channels</h3>
+          <p>Available for field service, technical consultations, and new opportunities across Saudi Arabia and the wider Gulf region.</p>
+          <div class="contact-links">
+            <a href="https://wa.me/966543479753" target="_blank" class="contact-link">
+              <div class="contact-link-icon cl-whatsapp"><i class="fab fa-whatsapp"></i></div>
+              <div class="contact-link-text">
+                <span>WhatsApp</span>
+                <span>+966 543 479 753</span>
+              </div>
+            </a>
+            <a href="mailto:hudagasan2020@gmail.com" class="contact-link">
+              <div class="contact-link-icon cl-email"><i class="fas fa-envelope"></i></div>
+              <div class="contact-link-text">
+                <span>Email</span>
+                <span>hudagasan2020@gmail.com</span>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/mahmoud-ghasan-" target="_blank" class="contact-link">
+              <div class="contact-link-icon cl-linkedin"><i class="fab fa-linkedin-in"></i></div>
+              <div class="contact-link-text">
+                <span>LinkedIn</span>
+                <span>mahmoud-ghasan</span>
+              </div>
+            </a>
+            <a href="https://www.facebook.com/share/1GXgiZpD8v/" target="_blank" class="contact-link">
+              <div class="contact-link-icon cl-facebook"><i class="fab fa-facebook-f"></i></div>
+              <div class="contact-link-text">
+                <span>Facebook</span>
+                <span>Mahmoud Ghasan</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <form class="contact-form glass-card" style="padding:32px;" onsubmit="handleForm(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="your@email.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Subject</label>
+              <input type="text" placeholder="How can I help?" required />
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea placeholder="Tell me about your project or inquiry…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+            <div id="form-success"><i class="fas fa-check-circle"></i> Message sent! I'll be in touch shortly.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FOOTER ======= -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="nav-logo">MG<span style="color:var(--accent);">.</span></div>
+          <p>Biomedical Engineer · Orthoserv · Saudi Arabia</p>
+        </div>
+        <div class="footer-socials">
+          <a href="https://wa.me/966543479753" target="_blank" class="footer-social" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="mailto:hudagasan2020@gmail.com" class="footer-social" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/mahmoud-ghasan-" target="_blank" class="footer-social" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.facebook.com/share/1GXgiZpD8v/" target="_blank" class="footer-social" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2024 Mahmoud Ghasan. All rights reserved. Crafted with precision for healthcare excellence.</p>
+    </div>
+  </footer>
+
+  <!-- ======= BACK TO TOP ======= -->
+  <button id="back-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+  <!-- ======= JAVASCRIPT ======= -->
+  <script>
+    /* ---------- Loader ---------- */
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loader').classList.add('hidden');
+      }, 900);
+    });
+
+    /* ---------- Theme toggle ---------- */
+    const html = document.documentElement;
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeIcon = themeBtn.querySelector('i');
+    let isDark = true;
+    themeBtn.addEventListener('click', () => {
+      isDark = !isDark;
+      html.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      themeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    });
+
+    /* ---------- Hamburger ---------- */
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+
+    /* ---------- Sticky nav ---------- */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    /* ---------- Active nav link ---------- */
+    const sections = document.querySelectorAll('section[id]');
+    const navAs = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let cur = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) cur = s.id;
+      });
+      navAs.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
+      });
+    });
+
+    /* ---------- Back to top ---------- */
+    const backTop = document.getElementById('back-top');
+    window.addEventListener('scroll', () => {
+      backTop.classList.toggle('visible', window.scrollY > 500);
+    });
+    backTop.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+
+    /* ---------- Scroll reveal ---------- */
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          /* Animate skill bars if inside this element */
+          entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+            bar.style.width = bar.dataset.width + '%';
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+
+    /* Also observe skill bars in already-revealed parents */
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.width = entry.target.dataset.width + '%';
+          barObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.skill-bar-fill').forEach(b => barObserver.observe(b));
+
+    /* ---------- Contact form ---------- */
+    function handleForm(e) {
+      e.preventDefault();
+      const success = document.getElementById('form-success');
+      success.style.display = 'block';
+      e.target.reset();
+      setTimeout(() => { success.style.display = 'none'; }, 5000);
+    }
+  </script>
+</body>
+</html>
